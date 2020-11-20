@@ -1,3 +1,4 @@
+ 
 const {gql} = require('apollo-server');
 
 module.exports = gql`
@@ -18,12 +19,14 @@ type Query {
     speakers:[Speaker]
     speakerById(Id: ID) : Speaker
   }
+
   type Speaker {
    id:ID!
    bio:String
    name:String
    sessions:[Session]
   }
+
   type Session {
     id: ID!
     title: String!
@@ -38,5 +41,6 @@ type Query {
         reason: "Too many sessions do not fit into a single track, we will be migrating to a tags based system in the future..."
       )
     level: String
+    speakers:[Speaker]
   }
 `;
