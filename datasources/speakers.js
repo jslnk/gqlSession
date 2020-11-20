@@ -4,7 +4,7 @@ const {RESTDataSource} = require('apollo-datasource-rest');
 class SpeakerAPI extends RESTDataSource{
     constructor(){
         super();
-        this.baseULR = 'https://jsonplaceholder.typicode.com/todos' ;//http://localhost:3000/speakers'; // this is seaker API URL
+        this.baseURL = 'http://localhost:3000/speakers'; // this is seaker API URL
     }
 
     async getSpeakerById(id){
@@ -14,7 +14,7 @@ class SpeakerAPI extends RESTDataSource{
 
     async getSpeakers(){
 
-        data = await this.get('/');
+        const data = await this.get('/');
         return data;
 
     } 

@@ -2,8 +2,8 @@ const {ApolloServer, gql} = require('apollo-server');
 const SessionAPI = require('./datasources/sessions');
 // fake data const sessions = require('./data/sessions.json');
 
-
 const SpeakerAPI = require('./datasources/speakers');
+
 
 
 const typeDefs = require('./schema.js');
@@ -11,7 +11,7 @@ const resolvers=require('./resolvers.js');
 
 const dataSources = ()=>({
     sessionAPI :new SessionAPI(),
-    speakerAPI :new SpeakerAPI()
+    speakerAPI :new SpeakerAPI(),
 });
 
 const server = new ApolloServer({
