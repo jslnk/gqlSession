@@ -1,10 +1,13 @@
 const _= require('lodash');
 const Query = require('./resolvers/query');
 const Session = require('./resolvers/session');
+const Mutation = require('./resolvers/mutation');
 
 module.exports = {
     Query,
-    Session
+    Session,
+    Mutation
+    
     // Query:{        
     //     sessions:(parent, args, {dataSources}, info)=>{
     //         return dataSources.sessionAPI.getSessions(args);
