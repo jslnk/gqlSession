@@ -22,15 +22,7 @@ type Query {
 
   type Mutation{
     toggleFavoriteSession(id:ID): Session
-    addNewSession( session:SessionInput):Session
-  }
-  
-  
-  type Speaker {
-   id:ID!
-   bio:String
-   name:String
-   sessions:[Session]
+    addNewSession( session:SessionInput): Session
   }
 
   input SessionInput{
@@ -42,12 +34,19 @@ type Query {
     day: String
     format: String
     track: String
-      @deprecated(
-        reason: "Too many sessions do not fit into a single track, we will be migrating to a tags based system in the future..."
-      )
     level: String
     favorite:Boolean
   }
+  
+  
+  type Speaker {
+   id:ID!
+   bio:String
+   name:String
+   sessions:[Session]
+  }
+
+
 
   type Session {
     id: ID!

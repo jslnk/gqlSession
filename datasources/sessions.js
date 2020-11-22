@@ -22,11 +22,18 @@ class SessionAPI extends DataSource{
         return session[0];
     }
 
-    toggleFavoriteSession(id){
+    toggleFavoriteSessionAAA(id){
         const session =_.filter(sessions, {id : parseInt(id)});
         session[0].favorite = !session[0].favorite;
         return session[0];
     }
+
+    addSession(session){
+        session.id = 12;
+        sessions.push(session);
+        //console.log(session);
+        return session;
+    }
 }
-module.exports=SessionAPI;
+module.exports= SessionAPI;
 
