@@ -1,4 +1,4 @@
-const {ApolloServer, gql} = require('apollo-server');
+const {ApolloServer, gql, ApolloError} = require('apollo-server');
 const SessionAPI = require('./datasources/sessions');
 // fake data const sessions = require('./data/sessions.json');
 
@@ -18,6 +18,13 @@ const server = new ApolloServer({
     typeDefs, 
     resolvers, 
     dataSources,
+    debug:false,
+    formatError:(err) =>{
+        if(err.extensions.code =='INTERNAL_SERVER_ERROR'){
+            return new ApolloError("We are having some trouble", "ERROR", {token:"uniquetoken"});
+        }        
+        return err;
+    }
     //instrospection:false, //disable schema
     //playground:false //disable playground
 

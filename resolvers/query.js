@@ -3,7 +3,12 @@ module.exports={
         return dataSources.sessionAPI.getSessions(args);
     },
     sessionById:(parent, {id}, {dataSources}, info) =>{
-        return dataSources.sessionAPI.getSessionByID(id);
+        try{
+            return dataSources.sessionAPI.getSessionByID(id);
+        }catch(error){
+            return{code:'ERROR', message:'An error occurred', token:'adsfkjsdlfkjsadlfk'};
+        }
+        
     }, 
     speakers:(parent, args, {dataSources}, info) =>{
         return dataSources.speakerAPI.getSpeakers();
