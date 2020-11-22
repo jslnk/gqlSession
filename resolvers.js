@@ -6,7 +6,12 @@ const Mutation = require('./resolvers/mutation');
 module.exports = {
     Query,
     Session,
-    Mutation
+    Mutation, 
+    // Room :{
+    //   EUROPA:'Europoa',
+    //   SOL:'Sol',
+    //   SATURN:'Saturn',
+    // }
     
     // Query:{        
     //     sessions:(parent, args, {dataSources}, info)=>{

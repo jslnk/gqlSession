@@ -9,7 +9,7 @@ type Query {
       description: String
       startsAt: String
       endsAt: String
-      room: String
+      room: Room
       day: String
       format: String
       track: String
@@ -18,6 +18,11 @@ type Query {
     sessionById(id: ID): Session
     speakers:[Speaker]
     speakerById(Id: ID) : Speaker
+  }
+  enum Room{
+    Europa
+    Sol
+    Saturn
   }
 
   type Mutation{
